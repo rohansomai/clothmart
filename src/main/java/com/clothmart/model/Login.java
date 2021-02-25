@@ -25,6 +25,9 @@ public class Login {
 	@Column(name = "role")
 	private String role;
 
+	@Column(name = "status")
+	private Boolean status;
+
 	public Long getId() {
 		return id;
 	}
@@ -57,8 +60,19 @@ public class Login {
 		this.email = email;
 	}
 
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
-		return "LoginVO [id=" + id + ", email=" + email + ", password=" + password + ", role=" + role + "]";
+		return "Login [id=" + id + ", email=" + email + ", password=" + password + ", role=" + role + ", status="
+				+ status + "]";
 	}
+
+	
 }

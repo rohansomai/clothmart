@@ -8,16 +8,16 @@
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
 	name="viewport">
-<title>ClothMart - Shop & Try Clothes</title>
+<title>ClothMart - Try & Buy Clothes</title>
 <!-- General CSS Files -->
-<link rel="stylesheet" href="adminResources/css/app.min.css"">
+<link rel="stylesheet" href="../adminResources/css/app.min.css">
 <!-- Template CSS -->
-<link rel="stylesheet" href="adminResources/css/style.css">
-<link rel="stylesheet" href="adminResources/css/components.css">
+<link rel="stylesheet" href="../adminResources/css/style.css">
+<link rel="stylesheet" href="../adminResources/css/components.css">
 <!-- Custom style CSS -->
-<link rel="stylesheet" href="adminResources/css/custom.css">
+<link rel="stylesheet" href="../adminResources/css/custom.css">
 <link rel='shortcut icon' type='image/x-icon'
-	href='adminResources/image/favicon.ico' />
+	href='../adminResources/image/favicon.ico' />
 </head>
 
 <body>
@@ -32,7 +32,7 @@
 
 
 			<jsp:include page="menu.jsp"></jsp:include>
-			
+
 
 			<!-- Main Content -->
 			<div class="main-content">
@@ -54,7 +54,7 @@
 											</div>
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
 												<div class="banner-img">
-													<img src="adminResources/image/1.png" alt="">
+													<img src="../adminResources/image/1.png" alt="">
 												</div>
 											</div>
 										</div>
@@ -78,7 +78,7 @@
 											</div>
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
 												<div class="banner-img">
-													<img src="adminResources/image/2.png" alt="">
+													<img src="../adminResources/image/2.png" alt="">
 												</div>
 											</div>
 										</div>
@@ -102,7 +102,7 @@
 											</div>
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
 												<div class="banner-img">
-													<img src="adminResources/image/3.png" alt="">
+													<img src="../adminResources/image/3.png" alt="">
 												</div>
 											</div>
 										</div>
@@ -126,7 +126,7 @@
 											</div>
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
 												<div class="banner-img">
-													<img src="adminResources/image/4.png" alt="">
+													<img src="../adminResources/image/4.png" alt="">
 												</div>
 											</div>
 										</div>
@@ -311,17 +311,17 @@
 													<ul class="list-unstyled order-list m-b-0 m-b-0">
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/image/user-8.png" alt="user"
+															src="../adminResources/image/user-8.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="Wildan Ahdian"></li>
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/img/user-9.png" alt="user"
+															src="../adminResources/img/user-9.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="John Deo"></li>
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/image/user-10.png" alt="user"
+															src="../adminResources/image/user-10.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="Sarah Smith"></li>
 														<li class="avatar avatar-sm"><span
@@ -354,12 +354,12 @@
 													<ul class="list-unstyled order-list m-b-0 m-b-0">
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/image/user-1.png" alt="user"
+															src="../adminResources/image/user-1.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="Wildan Ahdian"></li>
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/image/user-2.png" alt="user"
+															src="../adminResources/image/user-2.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="John Deo"></li>
 														<li class="avatar avatar-sm"><span
@@ -392,17 +392,17 @@
 													<ul class="list-unstyled order-list m-b-0 m-b-0">
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/image/user-3.png" alt="user"
+															src="../adminResources/image/user-3.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="Wildan Ahdian"></li>
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/image/user-4.png" alt="user"
+															src="../adminResources/image/user-4.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="John Deo"></li>
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/image/user-5.png" alt="user"
+															src="../adminResources/image/user-5.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="Sarah Smith"></li>
 														<li class="avatar avatar-sm"><span
@@ -435,12 +435,12 @@
 													<ul class="list-unstyled order-list m-b-0 m-b-0">
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/image/user-7.png" alt="user"
+															src="../adminResources/image/user-7.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="John Deo"></li>
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/image/user-8.png" alt="user"
+															src="../adminResources/image/user-8.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="Sarah Smith"></li>
 														<li class="avatar avatar-sm"><span
@@ -473,17 +473,17 @@
 													<ul class="list-unstyled order-list m-b-0 m-b-0">
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/image/user-9.png" alt="user"
+															src="../adminResources/image/user-9.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="Wildan Ahdian"></li>
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/image/user-10.png" alt="user"
+															src="../adminResources/image/user-10.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="John Deo"></li>
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/image/user-2.png" alt="user"
+															src="../adminResources/image/user-2.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="Sarah Smith"></li>
 														<li class="avatar avatar-sm"><span
@@ -516,17 +516,17 @@
 													<ul class="list-unstyled order-list m-b-0 m-b-0">
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/img/users/user-8.png" alt="user"
+															src="../adminResources/img/users/user-8.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="Wildan Ahdian"></li>
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/img/users/user-9.png" alt="user"
+															src="../adminResources/img/users/user-9.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="John Deo"></li>
 														<li class="team-member team-member-sm"><img
 															class="rounded-circle"
-															src="adminResources/image/user-10.png" alt="user"
+															src="../adminResources/image/user-10.png" alt="user"
 															data-toggle="tooltip" title=""
 															data-original-title="Sarah Smith"></li>
 														<li class="avatar avatar-sm"><span
@@ -565,7 +565,7 @@
 								</div>
 								<div class="card-body">
 									<div class="support-ticket media pb-1 mb-3">
-										<img src="adminResources/image/user-1.png"
+										<img src="../adminResources/image/user-1.png"
 											class="user-img mr-2" alt="">
 										<div class="media-body ml-3">
 											<div class="badge badge-pill badge-success mb-1 float-right">Feature</div>
@@ -580,7 +580,7 @@
 										</div>
 									</div>
 									<div class="support-ticket media pb-1 mb-3">
-										<img src="adminResources/image/user-2.png"
+										<img src="../adminResources/image/user-2.png"
 											class="user-img mr-2" alt="">
 										<div class="media-body ml-3">
 											<div class="badge badge-pill badge-warning mb-1 float-right">Bug</div>
@@ -595,7 +595,7 @@
 										</div>
 									</div>
 									<div class="support-ticket media pb-1 mb-3">
-										<img src="adminResources/image/user-3.png"
+										<img src="../adminResources/image/user-3.png"
 											class="user-img mr-2" alt="">
 										<div class="media-body ml-3">
 											<div class="badge badge-pill badge-primary mb-1 float-right">Query</div>
@@ -611,7 +611,7 @@
 										</div>
 									</div>
 									<div class="support-ticket media pb-1 mb-3">
-										<img src="adminResources/image/user-6.png"
+										<img src="../adminResources/image/user-6.png"
 											class="user-img mr-2" alt="">
 										<div class="media-body ml-3">
 											<div class="badge badge-pill badge-info mb-1 float-right">Enhancement</div>
@@ -707,21 +707,21 @@
 					</div>
 				</section>
 			</div>
-			
+
 			<jsp:include page="footer.jsp"></jsp:include>
-			
+
 		</div>
 	</div>
 	<!-- General JS Scripts -->
-	<script src="adminResources/js/app.min.js"></script>
+	<script src="../adminResources/js/app.min.js"></script>
 	<!-- JS Libraies -->
-	<script src="adminResources/js/apexcharts.min.js"></script>
+	<script src="../adminResources/js/apexcharts.min.js"></script>
 	<!-- Page Specific JS File -->
-	<script src="adminResources/js/index.js"></script>
+	<script src="../adminResources/js/index.js"></script>
 	<!-- Template JS File -->
-	<script src="adminResources/js/scripts.js"></script>
+	<script src="../adminResources/js/scripts.js"></script>
 	<!-- Custom JS File -->
-	<script src="adminResources/js/custom.js"></script>
+	<script src="../adminResources/js/custom.js"></script>
 </body>
 
 </html>

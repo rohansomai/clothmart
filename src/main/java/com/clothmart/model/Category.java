@@ -25,6 +25,9 @@ public class Category {
 	@Length(max = 5000)
 	private String description;
 
+	@Column(name = "status")
+	private Boolean status;
+
 	public Long getCid() {
 		return cid;
 	}
@@ -49,12 +52,19 @@ public class Category {
 		this.description = description;
 	}
 
-	@Override
-	public String toString() {
-		return "Category [cid=" + cid + ", name=" + name + ", description=" + description + "]";
+	public Boolean getStatus() {
+		return status;
 	}
 
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		return "Category [cid=" + cid + ", name=" + name + ", description=" + description + ", status=" + status + "]";
+	}
 
 	
-	
+
 }

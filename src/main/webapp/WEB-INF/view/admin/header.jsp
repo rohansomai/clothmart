@@ -15,14 +15,14 @@
 
 		<li class="dropdown"><a href="#" data-toggle="dropdown"
 			class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img
-				alt="image" src="adminResources/image/user.png"
+				alt="image" src="../adminResources/image/admin-avatar.png"
 				class="user-img-radious-style"> <span
 				class="d-sm-none d-lg-inline-block"></span></a>
 			<div class="dropdown-menu dropdown-menu-right pullDown">
-				<div class="dropdown-title">Hello Sarah Smith</div>
+				<div class="dropdown-title">Hello ClothMart Admin</div>
 				<a href="profile.html" class="dropdown-item has-icon"> <i
 					class="fas fa-user"></i> Profile
-				</a> <a href="login" class="dropdown-item has-icon text-danger"> <i
+				</a> <a href="../logout" class="dropdown-item has-icon text-danger"> <i
 					class="fas fa-sign-out-alt"></i> Logout
 				</a>
 			</div></li>

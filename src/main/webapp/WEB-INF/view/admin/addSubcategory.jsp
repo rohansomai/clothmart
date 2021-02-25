@@ -8,16 +8,16 @@
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
 	name="viewport">
-<title>Add Subcategory</title>
+<title>Add Sub category</title>
 <!-- General CSS Files -->
-<link rel="stylesheet" href="adminResources/css/app.min.css">
+<link rel="stylesheet" href="../adminResources/css/app.min.css">
 <!-- Template CSS -->
-<link rel="stylesheet" href="adminResources/css/style.css">
-<link rel="stylesheet" href="adminResources/css/components.css">
+<link rel="stylesheet" href="../adminResources/css/style.css">
+<link rel="stylesheet" href="../adminResources/css/components.css">
 <!-- Custom style CSS -->
-<link rel="stylesheet" href="adminResources/css/custom.css">
+<link rel="stylesheet" href="../adminResources/css/custom.css">
 <link rel='shortcut icon' type='image/x-icon'
-	href='adminResources/image/favicon.ico' />
+	href='../adminResources/image/favicon.ico' />
 </head>
 
 <body>
@@ -46,26 +46,29 @@
 									<f:form method="post" action="saveSubcategory"
 										modelAttribute="form-data">
 										<div class="card-header">
-											<h4>Add Subcategory</h4>
+											<h4>Add Sub category</h4>
 										</div>
 										<div class="card-body">
 
 											<div class="form-group">
+												<label for="category"> Category </label>
 												<f:select class="form-control" path="category.cid"
 													required="">
 													<option selected disabled>Select Category</option>
 													<x:forEach items="${categoryList}" var="i">
-														<f:option value="${i.cid}">${i.name}</f:option>
+														<x:if test="${i.status eq true}">
+															<f:option value="${i.cid}">${i.name}</f:option>
+														</x:if>
 													</x:forEach>
 												</f:select>
 											</div>
 											<div class="form-group mb-0">
-												<label>Subcategory Name</label>
+												<label>Sub category Name</label>
 												<f:input class="form-control" required="" path="name" />
 											</div>
 
 											<div class="form-group mb-0">
-												<label>Subcategory Description</label>
+												<label>Sub category Description</label>
 												<f:textarea class="form-control" path="description"
 													required=""></f:textarea>
 											</div>
@@ -90,13 +93,13 @@
 		</div>
 	</div>
 	<!-- General JS Scripts -->
-	<script src="adminResources/js/app.min.js"></script>
+	<script src="../adminResources/js/app.min.js"></script>
 	<!-- JS Libraies -->
 	<!-- Page Specific JS File -->
 	<!-- Template JS File -->
-	<script src="adminResources/js/scripts.js"></script>
+	<script src="../adminResources/js/scripts.js"></script>
 	<!-- Custom JS File -->
-	<script src="adminResources/js/custom.js"></script>
+	<script src="../adminResources/js/custom.js"></script>
 	<script>
 		$(document).ready(function() {
 			iziToast.error({

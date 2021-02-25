@@ -9,19 +9,19 @@
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
 	name="viewport">
-<title>View Feedbacks</title>
+<title>Feedback Details</title>
 <!-- General CSS Files -->
-<link rel="stylesheet" href="adminResources/css/app.min.css">
+<link rel="stylesheet" href="../adminResources/css/app.min.css">
 <!-- Template CSS -->
-<link rel="stylesheet" href="adminResources/css/datatables.min.css">
+<link rel="stylesheet" href="../adminResources/css/datatables.min.css">
 <link rel="stylesheet"
-	href="adminResources/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet" href="adminResources/css/style.css">
-<link rel="stylesheet" href="adminResources/css/components.css">
+	href="../adminResources/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="../adminResources/css/style.css">
+<link rel="stylesheet" href="../adminResources/css/components.css">
 <!-- Custom style CSS -->
-<link rel="stylesheet" href="adminResources/css/custom.css">
+<link rel="stylesheet" href="../adminResources/css/custom.css">
 <link rel='shortcut icon' type='image/x-icon'
-	href='adminResources/image/favicon.ico' />
+	href='../adminResources/image/favicon.ico' />
 </head>
 
 <body>
@@ -46,7 +46,7 @@
 							<div class="col-12">
 								<div class="card">
 									<div class="card-header">
-										<h4>View Feedbacks</h4>
+										<h4>Feedback Details</h4>
 									</div>
 									<div class="card-body">
 										<div class="table-responsive">
@@ -54,6 +54,7 @@
 												id="tableExport" style="width: 100%;">
 												<thead>
 													<tr>
+														<th>Sr. no</th>
 														<th>User Name</th>
 														<th>Rating</th>
 														<th>Feedback</th>
@@ -62,13 +63,14 @@
 													</tr>
 												</thead>
 												<tbody>
-													<x:forEach items="${feedbacksList}" var="i">
+													<x:forEach items="${feedbacksList}" var="i" varStatus="j">
 														<tr>
+															<td>${j.count}</td>
 															<td>${i.user.firstName} ${i.user.lastName}</td>
 															<x:set var="starCount" value="${i.starRating}"></x:set>
 
 															<td><x:forEach begin="0" end="${starCount - 1}">
-																	<i class="fas fa-star"></i>
+																	<i class="fas fa-star" style="color: #6777EF"></i>
 																</x:forEach></td>
 
 															<td>${i.feedback}</td>
@@ -77,24 +79,6 @@
 																	style="font-size: 16px; margin-left: 15px; color: red;"></i></a></td>
 														</tr>
 													</x:forEach>
-													<!-- <tr>
-														<td>Tiger Nixon</td>
-														<td><i class="fas fa-star"></i> <i
-															class="fas fa-star"></i> <i class="fas fa-star"></i></td>
-														<td>Lorem ipsum dolor sit amet, consectetur
-															adipisicing elit. Ad error.</td>
-														<td><a href=""> <i class="fas fa-trash"
-																style="font-size: 16px; margin-left: 15px; color: red;"></i></a></td>
-													</tr>
-													<tr>
-														<td>Tiger Nixon</td>
-														<td><i class="fas fa-star"></i> <i
-															class="fas fa-star"></i></td>
-														<td>Lorem ipsum dolor sit amet, consectetur
-															adipisicing elit. Ad error.</td>
-														<td><a href=""> <i class="fas fa-trash"
-																style="font-size: 16px; margin-left: 15px; color: red;"></i></a></td>
-													</tr> -->
 
 
 												</tbody>
@@ -114,22 +98,22 @@
 		</div>
 	</div>
 	<!-- General JS Scripts -->
-	<script src="adminResources/js/app.min.js"></script>
+	<script src="../adminResources/js/app.min.js"></script>
 	<!-- JS Libraies -->
 	<!-- Page Specific JS File -->
-	<script src="adminResources/js/datatables.min.js"></script>
-	<script src="adminResources/js/dataTables.bootstrap4.min.js"></script>
-	<script src="adminResources/js/dataTables.buttons.min.js"></script>
-	<script src="adminResources/js/buttons.flash.min.js"></script>
-	<script src="adminResources/js/jszip.min.js"></script>
-	<script src="adminResources/js/pdfmake.min.js"></script>
-	<script src="adminResources/js/vfs_fonts.js"></script>
-	<script src="adminResources/js/buttons.print.min.js"></script>
-	<script src="adminResources/js/datatables.js"></script>
+	<script src="../adminResources/js/datatables.min.js"></script>
+	<script src="../adminResources/js/dataTables.bootstrap4.min.js"></script>
+	<script src="../adminResources/js/dataTables.buttons.min.js"></script>
+	<script src="../adminResources/js/buttons.flash.min.js"></script>
+	<script src="../adminResources/js/jszip.min.js"></script>
+	<script src="../adminResources/js/pdfmake.min.js"></script>
+	<script src="../adminResources/js/vfs_fonts.js"></script>
+	<script src="../adminResources/js/buttons.print.min.js"></script>
+	<script src="../adminResources/js/datatables.js"></script>
 	<!-- Template JS File -->
-	<script src="adminResources/js/scripts.js"></script>
+	<script src="../adminResources/js/scripts.js"></script>
 	<!-- Custom JS File -->
-	<script src="adminResources/js/custom.js"></script>
+	<script src="../adminResources/js/custom.js"></script>
 </body>
 
 </html>

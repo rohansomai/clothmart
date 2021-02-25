@@ -1,5 +1,6 @@
 package com.clothmart.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
@@ -44,9 +43,11 @@ public class User {
 
 	@Column(name = "pincode")
 	private String pincode;
+	
+	@Column(name = "status")
+	private Boolean status;
 
-	@ManyToOne
-	@OnDelete(action = OnDeleteAction.CASCADE)
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "user_login_id")
 	Login login;
 
@@ -122,12 +123,22 @@ public class User {
 		this.login = login;
 	}
 
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
 				+ ", mobileNumber=" + mobileNumber + ", city=" + city + ", state=" + state + ", pincode=" + pincode
-				+ ", login=" + login + "]";
+				+ ", status=" + status + ", login=" + login + "]";
 	}
 
+
+	
 	
 }

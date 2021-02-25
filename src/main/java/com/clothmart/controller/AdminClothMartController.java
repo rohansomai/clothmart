@@ -1,12 +1,18 @@
 	package com.clothmart.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -14,6 +20,7 @@ import com.clothmart.model.Category;
 import com.clothmart.model.Complaint;
 import com.clothmart.model.Feedback;
 import com.clothmart.model.Login;
+import com.clothmart.model.Product;
 import com.clothmart.model.Retailer;
 import com.clothmart.model.Subcategory;
 import com.clothmart.model.User;
@@ -21,12 +28,16 @@ import com.clothmart.service.CategoryService;
 import com.clothmart.service.ComplaintService;
 import com.clothmart.service.FeedbackService;
 import com.clothmart.service.LoginService;
+import com.clothmart.service.ProductService;
 import com.clothmart.service.RetailerService;
 import com.clothmart.service.SubcategoryService;
 import com.clothmart.service.UserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 @Controller
-public class ClothMartController {
+@RequestMapping("/admin")
+public class AdminClothMartController {
 	
 	@Autowired
 	private CategoryService categoryService;
@@ -49,7 +60,15 @@ public class ClothMartController {
 	@Autowired
 	private FeedbackService feedbackService;
 	
-	@GetMapping("/")
+	@Autowired
+	private ProductService productService;
+	
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+	
+	
+	@GetMapping({"/", ""})
 	public ModelAndView index()
 	{
 		return new ModelAndView("admin/index");
@@ -65,13 +84,14 @@ public class ClothMartController {
 	public ModelAndView saveCategory(@ModelAttribute Category category)
 	{
 		this.categoryService.insert(category);
-		return new ModelAndView("redirect:/viewCategory");	
+		return new ModelAndView("redirect:/admin/viewCategory");	
 	}
 	
 	@GetMapping("/viewCategory")
 	public ModelAndView viewCategory()
 	{
 		List<Category> categoryList = this.categoryService.getCategoryList();
+		System.out.println(categoryList);
 		return new ModelAndView("admin/viewCategory", "categoryList", categoryList);
 	}
 	
@@ -80,7 +100,7 @@ public class ClothMartController {
 	{
 		category.setCid(cid);
 		this.categoryService.deleteCategory(category);
-		return new ModelAndView("redirect:/viewCategory");	
+		return new ModelAndView("redirect:/admin/viewCategory");	
 	}
 	
 	@GetMapping("/editCategory")
@@ -102,7 +122,7 @@ public class ClothMartController {
 	public ModelAndView saveSubcategory(@ModelAttribute Subcategory subcategory)
 	{
 		this.subcategoryService.insert(subcategory);
-		return new ModelAndView("redirect:/viewSubcategory");	
+		return new ModelAndView("redirect:/admin/viewSubcategory");	
 	}
 	
 	@GetMapping("/viewSubcategory")
@@ -126,7 +146,7 @@ public class ClothMartController {
 	{
 		subcategory.setSid(sid);
 		this.subcategoryService.delete(subcategory);
-		return new ModelAndView("redirect:/viewSubcategory");	
+		return new ModelAndView("redirect:/admin/viewSubcategory");	
 	}
 	
 	@GetMapping("/addRetailer")
@@ -138,11 +158,12 @@ public class ClothMartController {
 	@PostMapping("/saveRetailer")
 	public ModelAndView saveRetailer(@ModelAttribute Retailer retailer)
 	{
-		Login loginData = retailer.getLogin();// extracting login data from retailer i.e. email and password
-		loginData.setRole("retailer");
+		Login loginData = retailer.getLogin();// extracting login data from retailer i.e. email and password		
+		loginData.setPassword(this.passwordEncoder.encode(loginData.getPassword()));
+		loginData.setRole("ROLE_RETAILER");
 		this.loginService.insert(loginData);
 		this.retailerService.insert(retailer);
-		return new ModelAndView("redirect:/viewRetailers");
+		return new ModelAndView("redirect:/admin/viewRetailers");
 	}
 	
 	@GetMapping("/viewRetailers")
@@ -153,12 +174,14 @@ public class ClothMartController {
 	}
 	
 	@GetMapping("/deleteRetailer")
-	public ModelAndView deleteRetailer(@RequestParam("lid") Long loginId, @ModelAttribute Login login)
+	public ModelAndView deleteRetailer(@RequestParam("lid") Long loginId, @ModelAttribute Login login, @ModelAttribute Retailer retailer, @RequestParam("rid") Long registerId)
 	{
 		login.setId(loginId);
-		System.out.println(login);
 		this.loginService.delete(login);
-		return new ModelAndView("redirect:/viewRetailers");	
+		
+		retailer.setId(registerId);
+		this.retailerService.delete(retailer);
+		return new ModelAndView("redirect:/admin/viewRetailers");	
 	}
 	
 	@GetMapping("/editRetailer")
@@ -177,11 +200,13 @@ public class ClothMartController {
 	}
 	
 	@GetMapping("/deleteUser")
-	public ModelAndView deleteUser(@ModelAttribute Login login, @RequestParam("lid") Long loginId)
+	public ModelAndView deleteUser(@ModelAttribute Login login,@ModelAttribute User user, @RequestParam("lid") Long loginId, @RequestParam("uid") Long userId)
 	{
 		login.setId(loginId);
 		this.loginService.delete(login);
-		return new ModelAndView("redirect:/viewUsers")	;
+		user.setId(userId);
+		this.userService.delete(user);
+		return new ModelAndView("redirect:/admin/viewUsers")	;
 	}
 	
 	@GetMapping("/viewComplaints")
@@ -190,14 +215,7 @@ public class ClothMartController {
 		List<Complaint> complaintsList = this.complaintService.getComplaints();
 		return new ModelAndView("admin/viewComplaints", "complaintsList", complaintsList);
 	}
-	
-	
-	@GetMapping("/login")
-	public ModelAndView login()
-	{
-		return new ModelAndView("admin/login");
-	}
-	
+		
 	@GetMapping("/complaintReply")
 	public ModelAndView complaintReply(@RequestParam("id") Long id, @ModelAttribute Complaint complaint)
 	{
@@ -209,9 +227,8 @@ public class ClothMartController {
 	@PostMapping("/saveReply")
 	public ModelAndView saveReply(@ModelAttribute Complaint complaint)
 	{
-		complaint.setStatus("replied");
 		this.complaintService.insert(complaint);
-		return new ModelAndView("redirect:/viewComplaints");
+		return new ModelAndView("redirect:/admin/viewComplaints");
 	}
 	
 	@GetMapping("/deleteComplaint")
@@ -219,7 +236,7 @@ public class ClothMartController {
 	{
 		complaint.setId(id);
 		this.complaintService.delete(complaint);
-		return new ModelAndView("redirect:/viewComplaints");
+		return new ModelAndView("redirect:/admin/viewComplaints");
 	}
 	
 	@GetMapping("/viewFeedbacks")
@@ -235,19 +252,51 @@ public class ClothMartController {
 	{
 		feedback.setId(id);
 		this.feedbackService.delete(feedback);
-		return new ModelAndView("redirect:/viewFeedbacks");
+		return new ModelAndView("redirect:/admin/viewFeedbacks");
 	}
 
-	@GetMapping("/forgot-password")
-	public ModelAndView forgotPassword()
+	
+	@GetMapping("/viewProducts")
+	public ModelAndView viewProducts()
 	{
-		return new ModelAndView("admin/forgot-password");
+		List<Product> productsList = this.productService.getProducts();
+		List<Retailer> retailersList = this.retailerService.getRetailersList();
+		return new ModelAndView("admin/viewProducts", "productsList", productsList).addObject("retailersList", retailersList);
+	}
+	@GetMapping("/getProductsByRetailer")
+	public void getProductsByRetailer(@RequestParam("id") Long retailerId, @ModelAttribute Retailer retailer, HttpServletResponse response) throws IOException
+	{
+		retailer.setId(retailerId);		
+		 
+		List<Product> productsList = this.productService.getProductsByRetailer(retailer);
+		System.out.println(productsList);
+		
+		ObjectMapper mapper = new ObjectMapper();
+	    mapper.enable(SerializationFeature.INDENT_OUTPUT);
+	    String json = mapper.writeValueAsString(productsList);
+
+	    PrintWriter out = response.getWriter(); 
+		out.println(json);
+
+	}
+	@GetMapping("/getAllProductsJSON")
+	public void getAllProductsJSON(HttpServletResponse response) throws IOException
+	{
+		 
+		List<Product> productsList = this.productService.getProducts();
+		
+		ObjectMapper mapper = new ObjectMapper();
+	    mapper.enable(SerializationFeature.INDENT_OUTPUT);
+	    String json = mapper.writeValueAsString(productsList);
+
+	    PrintWriter out = response.getWriter(); 
+		out.println(json);
+
 	}
 	
-	@GetMapping("/register")
-	public ModelAndView register()
-	{
-		return new ModelAndView("admin/register");
-	}
-	
+//	@GetMapping("/register")
+//	public ModelAndView register()
+//	{
+//		return new ModelAndView("admin/register", new );
+//	}
 }

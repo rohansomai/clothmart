@@ -33,6 +33,9 @@ public class Subcategory {
 	@JoinColumn(name = "cid")
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Category category;
+	
+	@Column(name = "status")
+	private Boolean status;
 
 	public Long getSid() {
 		return sid;
@@ -66,11 +69,20 @@ public class Subcategory {
 		this.category = category;
 	}
 
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		return "Subcategory [sid=" + sid + ", name=" + name + ", description=" + description + ", category=" + category
-				+ "]";
+				+ ", status=" + status + "]";
 	}
+
 	
 	
 

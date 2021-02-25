@@ -10,14 +10,14 @@
 	name="viewport">
 <title>Add Retailers</title>
 <!-- General CSS Files -->
-<link rel="stylesheet" href="adminResources/css/app.min.css">
+<link rel="stylesheet" href="../adminResources/css/app.min.css">
 <!-- Template CSS -->
-<link rel="stylesheet" href="adminResources/css/style.css">
-<link rel="stylesheet" href="adminResources/css/components.css">
+<link rel="stylesheet" href="../adminResources/css/style.css">
+<link rel="stylesheet" href="../adminResources/css/components.css">
 <!-- Custom style CSS -->
-<link rel="stylesheet" href="adminResources/css/custom.css">
+<link rel="stylesheet" href="../adminResources/css/custom.css">
 <link rel='shortcut icon' type='image/x-icon'
-	href='adminResources/image/favicon.ico' />
+	href='../adminResources/image/favicon.ico' />
 </head>
 
 <body>
@@ -51,13 +51,15 @@
 												<div class="col">
 													<div class="form-group">
 														<label>First Name</label>
-														<f:input class="form-control" path="firstName" required="" />
+														<f:input class="form-control" path="firstName"
+															required="true" />
 													</div>
 												</div>
 												<div class="col">
 													<div class="form-group">
 														<label>Last Name</label>
-														<f:input path="lastName" class="form-control" required="" />
+														<f:input path="lastName" class="form-control"
+															required="true" />
 													</div>
 												</div>
 											</div>
@@ -66,14 +68,14 @@
 													<div class="form-group">
 														<label>Email</label>
 														<f:input type="email" class="form-control"
-															path="login.email" required="" />
+															path="login.email" required="true" />
 													</div>
 												</div>
 												<div class="col">
 													<div class="form-group">
 														<label>Password</label>
 														<f:input type="password" class="form-control"
-															path="login.password" required="" />
+															path="login.password" required="true" />
 													</div>
 												</div>
 											</div>
@@ -83,20 +85,21 @@
 														<label>Mobile Number</label>
 														<f:input type="number" path="mobileNumber"
 															onKeyPress="if(this.value.length>=10) return false;"
-															class="form-control" required="" />
+															class="form-control" required="true" />
 													</div>
 												</div>
 												<div class="col">
 													<div class="form-group">
 														<label>Shop Name</label>
-														<f:input path="shopName" class="form-control" required="" />
+														<f:input path="shopName" class="form-control"
+															required="true" />
 													</div>
 												</div>
 											</div>
 											<div class="form-group mb-0">
 												<label>Shop Address</label>
 												<f:textarea class="form-control" path="shopAddress"
-													required=""></f:textarea>
+													required="true"></f:textarea>
 											</div>
 										</div>
 										<f:hidden path="id" />
@@ -120,13 +123,13 @@
 		</div>
 	</div>
 	<!-- General JS Scripts -->
-	<script src="adminResources/js/app.min.js"></script>
+	<script src="../adminResources/js/app.min.js"></script>
 	<!-- JS Libraies -->
 	<!-- Page Specific JS File -->
 	<!-- Template JS File -->
-	<script src="adminResources/js/scripts.js"></script>
+	<script src="../adminResources/js/scripts.js"></script>
 	<!-- Custom JS File -->
-	<script src="adminResources/js/custom.js"></script>
+	<script src="../adminResources/js/custom.js"></script>
 	<script>
 		$(document).ready(function() {
 			iziToast.error({

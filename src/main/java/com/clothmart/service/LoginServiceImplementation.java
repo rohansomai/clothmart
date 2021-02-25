@@ -18,6 +18,7 @@ public class LoginServiceImplementation implements LoginService {
 	@Override
 	public void insert(Login loginData) {
 
+		loginData.setStatus(true);
 		this.loginDAO.save(loginData);
 
 	}
@@ -25,9 +26,22 @@ public class LoginServiceImplementation implements LoginService {
 	@Override
 	public void delete(Login login) {
 
-//		this.loginDAO.delete(login);
-		this.loginDAO.deleteById(login.getId());
+//		this.loginDAO.deleteById(login.getId());
+		Login login2 = this.loginDAO.findById(login.getId()).get();
+		login2.setStatus(false);
+		this.loginDAO.save(login2);
+	}
 
+	@Override
+	public Login findByEmail(String email) {
+
+		return this.loginDAO.findByEmail(email);
+	}
+
+	@Override
+	public Login findByEmailAndRole(String email, String role) {
+		
+		return this.loginDAO.findByEmailAndRole(email, role);
 	}
 
 }

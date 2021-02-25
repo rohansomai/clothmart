@@ -14,4 +14,6 @@ public interface UserService {
 	
 	void delete(User user);
 
+	boolean checkEmailAlreadyExists(String email);
+
 }

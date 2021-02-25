@@ -13,33 +13,37 @@ import com.clothmart.repository.CategoryDAO;
 
 @Service
 @Transactional
-public class CategoryServiceImplementation implements CategoryService{
+public class CategoryServiceImplementation implements CategoryService {
 
 	@Autowired
 	private CategoryDAO categoryDAO;
-	
+
 	@Override
 	public void insert(Category category) {
-		
+
+		category.setStatus(true);
 		this.categoryDAO.save(category);
-		
+
 	}
 
 	public List<Category> getCategoryList() {
-		
+
 		return this.categoryDAO.findAll();
 	}
 
 	public Category getEditList(Category category) {
-		
+
 		Optional<Category> o = this.categoryDAO.findById(category.getCid());
 		return o.get();
 	}
-	
-	public void deleteCategory(Category category)
-	{
-		this.categoryDAO.deleteById(category.getCid());
+
+	public void deleteCategory(Category category) {
+		
+		Optional<Category> o = this.categoryDAO.findById(category.getCid());
+		Category category2 = o.get();
+		category2.setStatus(false);
+		this.categoryDAO.save(category2);
+
 	}
 
-	
 }

@@ -34,10 +34,15 @@ public class Complaint {
 	@Length(max = 5000)
 	private String description;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "date_and_time")
-	private Date date_and_time;
+	@Column(name = "complaint_date_and_time")
+	private Date complaint_date_and_time;
+	
+	@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "reply_date_and_time")
+	private Date reply_date_and_time;
 
 	@Column(name = "status")
 	private String status;
@@ -75,13 +80,6 @@ public class Complaint {
 		this.description = description;
 	}
 
-	public Date getDate_and_time() {
-		return date_and_time;
-	}
-
-	public void setDate_and_time(Date date_and_time) {
-		this.date_and_time = date_and_time;
-	}
 
 	public String getStatus() {
 		return status;
@@ -107,11 +105,29 @@ public class Complaint {
 		this.user = user;
 	}
 
+	public Date getComplaint_date_and_time() {
+		return complaint_date_and_time;
+	}
+
+	public void setComplaint_date_and_time(Date complaint_date_and_time) {
+		this.complaint_date_and_time = complaint_date_and_time;
+	}
+
+	public Date getReply_date_and_time() {
+		return reply_date_and_time;
+	}
+
+	public void setReply_date_and_time(Date reply_date_and_time) {
+		this.reply_date_and_time = reply_date_and_time;
+	}
+
 	@Override
 	public String toString() {
-		return "Complaint [id=" + id + ", subject=" + subject + ", description=" + description + ", date_and_time="
-				+ date_and_time + ", status=" + status + ", reply=" + reply + ", user=" + user + "]";
+		return "Complaint [id=" + id + ", subject=" + subject + ", description=" + description
+				+ ", complaint_date_and_time=" + complaint_date_and_time + ", reply_date_and_time="
+				+ reply_date_and_time + ", status=" + status + ", reply=" + reply + ", user=" + user + "]";
 	}
+
 	
 	
 

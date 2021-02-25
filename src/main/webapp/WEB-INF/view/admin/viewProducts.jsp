@@ -9,7 +9,7 @@
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
 	name="viewport">
-<title>View Sub category</title>
+<title>Product Details</title>
 <!-- General CSS Files -->
 <link rel="stylesheet" href="../adminResources/css/app.min.css">
 <!-- Template CSS -->
@@ -20,8 +20,12 @@
 <link rel="stylesheet" href="../adminResources/css/components.css">
 <!-- Custom style CSS -->
 <link rel="stylesheet" href="../adminResources/css/custom.css">
+
+<link rel="stylesheet" href="../adminResources/css/productStyle.css">
+
 <link rel='shortcut icon' type='image/x-icon'
 	href='../adminResources/image/favicon.ico' />
+
 </head>
 
 <body>
@@ -33,10 +37,7 @@
 
 			<jsp:include page="header.jsp"></jsp:include>
 
-
-
 			<jsp:include page="menu.jsp"></jsp:include>
-
 
 			<!-- Main Content -->
 			<div class="main-content">
@@ -46,40 +47,62 @@
 							<div class="col-12">
 								<div class="card">
 									<div class="card-header">
-										<h4>Sub category Details</h4>
+										<h4>Product Details</h4>
+									</div>
+									<div class="form-group col-md-4 mr-auto ml-3">
+										<label for="retailer">Filter by Retailer</label> <select
+											id="retailer" class="form-control"
+											onchange="loadProductsByRetailer()">
+											<option selected value="all">All</option>
+											<x:forEach items="${retailersList}" var="i">
+												<option value="${i.id}">${i.shopName}</option>
+											</x:forEach>
+
+										</select>
 									</div>
 									<div class="card-body">
 										<div class="table-responsive">
-											<table class="table table-striped table-hover"
-												id="tableExport" style="width: 100%;">
+											<table class="table table-striped table-hover" id="table"
+												style="width: 100%;">
 												<thead>
 													<tr>
 														<th>Sr. no</th>
+														<th>Image</th>
+														<th>Product Name</th>
+														<th>Description</th>
+														<th>Quantity</th>
+														<th>Price</th>
+														<th>Retailer Name</th>
+														<th>Retailer's Shop Name</th>
 														<th>Category</th>
-														<th>Sub category Name</th>
-														<th>Sub category Description</th>
-														<th>Action</th>
+														<th>Sub Category</th>
 													</tr>
 												</thead>
-												<tbody>
-													<x:forEach items="${subcategoryList}" var="i" varStatus="j">
-														<x:if test="${i.status eq true}">
-															<tr>
-																<td>${j.count}</td>
-																<td>${i.category.name}</td>
-																<td>${i.name}</td>
-																<td>${i.description}</td>
-																<td><a href="editSubcategory?sid=${i.sid}"><i
-																		class="fas fa-edit" style="font-size: 16px;"></i></a> <a
-																	href="deleteSubcategory?sid=${i.sid}"> <i
-																		class="fas fa-trash"
-																		style="font-size: 16px; color: red;"></i></a></td>
-															</tr>
-														</x:if>
-
+												<tbody id="tbody">
+													<x:forEach items="${productsList}" var="i" varStatus="j">
+														<tr>
+															<td>${j.count}</td>
+															<td><img alt="${i.name}" class="productImage"
+																src="${i.imageUrl}" height="50px" width="50px"></td>
+															<td>${i.name}</td>
+															<td>${i.description}</td>
+															<td>${i.quantity}Pieces</td>
+															<td>&#8377;${i.price}</td>
+															<td>${i.retailer.firstName}${i.retailer.lastName}</td>
+															<td>${i.retailer.shopName}</td>
+															<td>${i.category.name}</td>
+															<td>${i.subcategory.name}</td>
+														</tr>
 													</x:forEach>
 												</tbody>
 											</table>
+
+											<!-- The Modal -->
+											<div id="myModal" class="modal">
+												<span class="close">&times;</span> <img
+													class="modal-content" id="img01">
+												<div id="caption"></div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -87,7 +110,6 @@
 						</div>
 					</div>
 				</section>
-
 			</div>
 
 			<jsp:include page="footer.jsp"></jsp:include>
@@ -96,7 +118,7 @@
 	</div>
 	<!-- General JS Scripts -->
 	<script src="../adminResources/js/app.min.js"></script>
-	<!-- JS Libraies -->
+	<!-- JS Libraries -->
 	<!-- Page Specific JS File -->
 	<script src="../adminResources/js/datatables.min.js"></script>
 	<script src="../adminResources/js/dataTables.bootstrap4.min.js"></script>
@@ -107,10 +129,12 @@
 	<script src="../adminResources/js/vfs_fonts.js"></script>
 	<script src="../adminResources/js/buttons.print.min.js"></script>
 	<script src="../adminResources/js/datatables.js"></script>
+	<script src="../adminResources/js/productJS.js"></script>
 	<!-- Template JS File -->
 	<script src="../adminResources/js/scripts.js"></script>
 	<!-- Custom JS File -->
 	<script src="../adminResources/js/custom.js"></script>
+
 </body>
 
 </html>

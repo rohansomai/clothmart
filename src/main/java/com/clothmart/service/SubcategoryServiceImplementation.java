@@ -18,6 +18,7 @@ public class SubcategoryServiceImplementation implements SubcategoryService {
 	@Override
 	public void insert(Subcategory subcategory) {
 		
+		subcategory.setStatus(true);
 		this.subcategoryDAO.save(subcategory);
 		
 	}
@@ -37,7 +38,10 @@ public class SubcategoryServiceImplementation implements SubcategoryService {
 	
 	public void delete(Subcategory subcategory)
 	{
-		this.subcategoryDAO.delete(subcategory);
+		Optional<Subcategory> o = this.subcategoryDAO.findById(subcategory.getSid());
+		Subcategory subcategory2 = o.get();
+		subcategory2.setStatus(false);
+		this.subcategoryDAO.save(subcategory2);
 	}
 	
 

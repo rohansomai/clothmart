@@ -44,6 +44,10 @@ public class Retailer {
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "retailer_login_id")
 	private Login login;
+	
+	@Column(name = "status")
+	private Boolean status;
+
 
 	public Long getId() {
 		return id;
@@ -101,11 +105,22 @@ public class Retailer {
 		this.login = login;
 	}
 
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		return "Retailer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", shopName=" + shopName
-				+ ", shopAddress=" + shopAddress + ", mobileNumber=" + mobileNumber + ", login=" + login + "]";
+				+ ", shopAddress=" + shopAddress + ", mobileNumber=" + mobileNumber + ", login=" + login + ", status="
+				+ status + "]";
 	}
+
+	
 
 	
 }

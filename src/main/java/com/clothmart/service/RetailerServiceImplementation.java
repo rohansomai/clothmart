@@ -21,6 +21,7 @@ public class RetailerServiceImplementation implements RetailerService {
 	@Override
 	public void insert(Retailer retailer) {
 
+		retailer.setStatus(true);
 		this.retailerDAO.save(retailer);
 
 	}
@@ -39,6 +40,9 @@ public class RetailerServiceImplementation implements RetailerService {
 	
 	public void delete(Retailer retailer)
 	{
-		this.retailerDAO.delete(retailer);
+//		this.retailerDAO.delete(retailer);
+		Retailer retailer2 = this.retailerDAO.findById(retailer.getId()).get();
+		retailer2.setStatus(false);
+		this.retailerDAO.save(retailer2);
 	}
 }

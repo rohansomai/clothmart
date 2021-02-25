@@ -10,14 +10,14 @@
 	name="viewport">
 <title>Complaint Reply</title>
 <!-- General CSS Files -->
-<link rel="stylesheet" href="adminResources/css/app.min.css">
+<link rel="stylesheet" href="../adminResources/css/app.min.css">
 <!-- Template CSS -->
-<link rel="stylesheet" href="adminResources/css/style.css">
-<link rel="stylesheet" href="adminResources/css/components.css">
+<link rel="stylesheet" href="../adminResources/css/style.css">
+<link rel="stylesheet" href="../adminResources/css/components.css">
 <!-- Custom style CSS -->
-<link rel="stylesheet" href="adminResources/css/custom.css">
+<link rel="stylesheet" href="../adminResources/css/custom.css">
 <link rel='shortcut icon' type='image/x-icon'
-	href='adminResources/image/favicon.ico' />
+	href='../adminResources/image/favicon.ico' />
 </head>
 
 <body>
@@ -63,10 +63,8 @@
 											</div>
 										</div>
 										<f:hidden path="id" />
-										<%-- <f:hidden path="date_and_time" />  --%>
-										<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
-										<f:hidden path="date_and_time" />
+										
+										<f:hidden path="complaint_date_and_time" />
 
 
 										<f:hidden path="user.id" />
@@ -87,13 +85,13 @@
 	<jsp:include page="footer.jsp"></jsp:include>
 
 	<!-- General JS Scripts -->
-	<script src="adminResources/js/app.min.js"></script>
+	<script src="../adminResources/js/app.min.js"></script>
 	<!-- JS Libraies -->
 	<!-- Page Specific JS File -->
 	<!-- Template JS File -->
-	<script src="adminResources/js/scripts.js"></script>
+	<script src="../adminResources/js/scripts.js"></script>
 	<!-- Custom JS File -->
-	<script src="adminResources/js/custom.js"></script>
+	<script src="../adminResources/js/custom.js"></script>
 	<script>
 		$(document).ready(function() {
 			iziToast.error({

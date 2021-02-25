@@ -8,18 +8,18 @@
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
 	name="viewport">
-<title>Otika - Admin Dashboard Template</title>
+<title>Forgot Password</title>
 <!-- General CSS Files -->
-<link rel="stylesheet" href="adminResources/css/app.min.css">
-<link rel="stylesheet" href="adminResources/css/bootstrap-social.css">
-<link rel="stylesheet" href="adminResources/css/iziToast.min.css">
+<link rel="stylesheet" href="../adminResources/css/app.min.css">
+<link rel="stylesheet" href="../adminResources/css/bootstrap-social.css">
+<link rel="stylesheet" href="../adminResources/css/iziToast.min.css">
 <!-- Template CSS -->
-<link rel="stylesheet" href="adminResources/css/style.css">
-<link rel="stylesheet" href="adminResources/css/components.css">
+<link rel="stylesheet" href="../adminResources/css/style.css">
+<link rel="stylesheet" href="../adminResources/css/components.css">
 <!-- Custom style CSS -->
-<link rel="stylesheet" href="adminResources/css/custom.css">
+<link rel="stylesheet" href="../adminResources/css/custom.css">
 <link rel='shortcut icon' type='image/x-icon'
-	href='adminResources/image/favicon.ico' />
+	href='../adminResources/image/favicon.ico' />
 </head>
 
 <body>
@@ -59,13 +59,13 @@
 		</section>
 	</div>
 	<!-- General JS Scripts -->
-	<script src="adminResources/js/app.min.js"></script>
+	<script src="../adminResources/js/app.min.js"></script>
 	<!-- JS Libraies -->
 	<!-- Page Specific JS File -->
 	<!-- Template JS File -->
-	<script src="adminResources/js/scripts.js"></script>
+	<script src="../adminResources/js/scripts.js"></script>
 	<!-- Custom JS File -->
-	<script src="adminResources/js/custom.js"></script>
+	<script src="../adminResources/js/custom.js"></script>
 </body>
 
 </html>
