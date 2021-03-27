@@ -25,6 +25,9 @@ public class Feedback {
 	@Column(name = "starRating")
 	private Integer starRating;
 
+	@Column(name = "title")
+	private String title;
+
 	@Column(name = "feedback")
 	@Length(max = 5000)
 	private String feedback;
@@ -33,6 +36,25 @@ public class Feedback {
 	@JoinColumn(name = "feedback_user_id")
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private User user;
+
+	@ManyToOne
+	@JoinColumn(name = "feedback_product_id")
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	private Product product;
+
+	/**
+	 * @return the product
+	 */
+	public Product getProduct() {
+		return product;
+	}
+
+	/**
+	 * @param product the product to set
+	 */
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 
 	public Long getId() {
 		return id;
@@ -66,11 +88,24 @@ public class Feedback {
 		this.user = user;
 	}
 
-	@Override
-	public String toString() {
-		return "Feedback [id=" + id + ", starRating=" + starRating + ", feedback=" + feedback + ", user=" + user + "]";
+	/**
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
 	}
 
-	
-	
+	/**
+	 * @param title the title to set
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	@Override
+	public String toString() {
+		return "Feedback [id=" + id + ", starRating=" + starRating + ", title=" + title + ", feedback=" + feedback
+				+ ", user=" + user + ", product=" + product + "]";
+	}
+
 }

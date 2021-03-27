@@ -1,5 +1,6 @@
 package com.clothmart.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -9,10 +10,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
 public class ClothMartConfiguration extends WebSecurityConfigurerAdapter{
+	
+	@Autowired
+	private AuthenticationSuccessHandler successHandler;
 	
 	@Bean
 	public UserDetailsService getUserDetailsService()
@@ -24,6 +29,12 @@ public class ClothMartConfiguration extends WebSecurityConfigurerAdapter{
 	public BCryptPasswordEncoder passwordEncoder()
 	{
 		return new BCryptPasswordEncoder();
+	}
+	
+	@Bean
+	public AuthenticationSuccessHandler getAuthenticationSuccessHandler()
+	{
+		return new AuthenticationSuccessHandlerImplementation();
 	}
 	
 	@Bean
@@ -44,19 +55,23 @@ public class ClothMartConfiguration extends WebSecurityConfigurerAdapter{
 		auth.authenticationProvider(this.authenticationProvider());
 	}
 
+	
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN") 
 		.antMatchers("/retailer/**").hasRole("RETAILER")
 //	    .antMatchers("/user/**").hasRole("USER")
-		.antMatchers("/**").permitAll()
+		.antMatchers("/**").permitAll()	
 		.and().formLogin()
 		.loginPage("/login")
-		.defaultSuccessUrl("/")
+		.defaultSuccessUrl("/", true)
+		.successHandler(successHandler)
 		.and().csrf().disable();
 		
 	}
+	
 	
 	
 }

@@ -30,4 +30,5 @@ public class UserDetailsServiceImplementation implements UserDetailsService{
 		return new User(login.getEmail(), login.getPassword(), List.of(new SimpleGrantedAuthority(login.getRole())));
 	}
 
+	
 }

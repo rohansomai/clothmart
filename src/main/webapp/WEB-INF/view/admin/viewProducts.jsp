@@ -57,14 +57,14 @@
 											<x:forEach items="${retailersList}" var="i">
 												<option value="${i.id}">${i.shopName}</option>
 											</x:forEach>
-
 										</select>
 									</div>
 									<div class="card-body">
 										<div class="table-responsive">
-											<table class="table table-striped table-hover" id="table"
-												style="width: 100%;">
+											<table class="table table-striped table-hover"
+												id="tableExport" style="width: 100%;">
 												<thead>
+													<tr>
 													<tr>
 														<th>Sr. no</th>
 														<th>Image</th>
@@ -86,9 +86,9 @@
 																src="${i.imageUrl}" height="50px" width="50px"></td>
 															<td>${i.name}</td>
 															<td>${i.description}</td>
-															<td>${i.quantity}Pieces</td>
+															<td>${i.quantity}&nbsp;Pieces</td>
 															<td>&#8377;${i.price}</td>
-															<td>${i.retailer.firstName}${i.retailer.lastName}</td>
+															<td>${i.retailer.firstName}&nbsp;${i.retailer.lastName}</td>
 															<td>${i.retailer.shopName}</td>
 															<td>${i.category.name}</td>
 															<td>${i.subcategory.name}</td>

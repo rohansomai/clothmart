@@ -14,4 +14,5 @@ public interface SubcategoryService {
 	
 	void delete(Subcategory subcategory);
 
+	Subcategory findBySid(Long sid);
 }

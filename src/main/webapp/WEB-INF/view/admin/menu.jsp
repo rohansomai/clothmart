@@ -1,8 +1,9 @@
 <div class="main-sidebar sidebar-style-2">
 	<aside id="sidebar-wrapper">
 		<div class="sidebar-brand">
-			<a href="/admin/"> <img alt="image" style="height: 60px; width: 100px;"
-				src="../adminResources/image/clothmartLg.png" class="header-logo" /> <!-- <span class="logo-name">ClothMart</span> -->
+			<a href="/admin/"> <img alt="image" style="height: 50px;"
+				src="../adminResources/image/full_logo.png" class="header-logo" />
+				<!-- <span class="logo-name">ClothMart</span> -->
 			</a>
 		</div>
 		<ul class="sidebar-menu">

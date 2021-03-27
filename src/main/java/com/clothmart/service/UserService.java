@@ -2,6 +2,7 @@ package com.clothmart.service;
 
 import java.util.List;
 
+import com.clothmart.model.Login;
 import com.clothmart.model.User;
 
 public interface UserService {
@@ -14,6 +15,10 @@ public interface UserService {
 	
 	void delete(User user);
 
-	boolean checkEmailAlreadyExists(String email);
+	boolean checkEmailAlreadyExists(String email, String role);
+	
+	void sendMail(String from, String to, String subject, String message) throws Exception;
+
+	User getUserByLogin(Login login);
 
 }

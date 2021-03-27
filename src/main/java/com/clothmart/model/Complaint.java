@@ -2,6 +2,7 @@ package com.clothmart.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -51,7 +52,7 @@ public class Complaint {
 	@Length(max = 5000)
 	private String reply;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "complaint_user_id")
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private User user;

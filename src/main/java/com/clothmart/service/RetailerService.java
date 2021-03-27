@@ -2,6 +2,7 @@ package com.clothmart.service;
 
 import java.util.List;
 
+import com.clothmart.model.Login;
 import com.clothmart.model.Retailer;
 
 public interface RetailerService {
@@ -13,5 +14,7 @@ public interface RetailerService {
 	 Retailer getEditList(Retailer retailer);
 	
 	void delete(Retailer retailer);
+	
+	Retailer getRetailerByLogin(Login login);
 	
 }

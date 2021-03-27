@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.clothmart.model.Feedback;
+import com.clothmart.model.Product;
 import com.clothmart.repository.FeedbackDAO;
 
 @Service
@@ -26,9 +27,15 @@ public class FeedbackServiceImplementation implements FeedbackService {
 
 	@Override
 	public void delete(Feedback feedback) {
-		
+
 		this.feedbackDAO.delete(feedback);
-		
+
+	}
+
+	@Override
+	public List<Feedback> getFeedback(Product product) {
+
+		return this.feedbackDAO.findByProduct(product);
 	}
 
 }

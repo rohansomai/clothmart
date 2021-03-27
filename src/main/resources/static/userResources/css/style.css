@@ -1,0 +1,120 @@
+@charset "ISO-8859-1";
+
+.custom-bg {
+	background-color: #6777ef !important;
+}
+
+.reg-bg {
+	background: rgb(34, 193, 195);
+	background: linear-gradient(0deg, rgba(34, 193, 195, 1) 13%,
+		rgba(198, 165, 18, 1) 90%);
+}
+
+.login-bg {
+	background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+}
+
+.admin .card {
+	border: 1px solid #6777ef;
+}
+
+.admin .card:hover {
+	background-color: #e2e2e2;
+}
+
+.admin a:hover {
+	text-decoration: none;
+}
+
+.retailer .card {
+	border: 1px solid #6777ef;
+}
+
+.retailer .card:hover {
+	background-color: #e2e2e2;
+}
+
+.retailer a:hover {
+	text-decoration: none;
+}
+
+.retailer-reg-bg {
+	background: rgb(34, 195, 98);
+	background: radial-gradient(circle, rgba(34, 195, 98, 1) 22%,
+		rgba(104, 198, 18, 1) 85%);
+}
+
+.list-group-item.active {
+	border: 1px solid #6777ef;
+	background-color: #6777ef !important;
+}
+
+.btn-custom, .btn-custom:hover, .btn-custom:active, .btn-custom:visited
+	{
+	background-color: #6777ef !important;
+	color: white;
+}
+
+.products .card:hover {
+	background-color: #e2e2e2;
+}
+
+.products .card .card-title {
+	height: 65px;
+}
+
+.product-description {
+	height: 80px;
+}
+
+.ProductQty {
+	display: inline;
+	background-color: white;
+	border: 1px solid black;
+}
+
+.addRemoveQty {
+	display: inline;
+}
+
+/* toast-css */
+#toast {
+	min-width: 300px;
+	font-size: 15px;
+	position: fixed;
+	bottom: 50px;
+	left: 50%;
+	margin-left: -135px;
+	background-color: #000;
+	color: #fff;
+	text-align: center;
+	padding: 18px;
+	z-index: 1;
+	visibility: hidden;
+	box-shadow: 0px 0px 100px #000;
+}
+
+#toast.display {
+	visibility: visible;
+	animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+}
+
+@keyframes fadeIn {from { bottom:0;
+	opacity: 0;
+}
+
+to {
+	bottom: 50px;
+	opacity: 1;
+}
+
+}
+@keyframes fadeOut {from { bottom:50px;
+	opacity: 1;
+}
+
+to {
+	bottom: 0;
+	opacity: 0;
+}
+}

@@ -43,7 +43,7 @@
 							<div class="col-12">
 								<div class="card">
 									<f:form action="saveCategory" method="post"
-										modelAttribute="form-data">
+										modelAttribute="categoryData">
 										<f:hidden path="cid" />
 
 										<div class="card-header">
@@ -61,6 +61,7 @@
 													required=""></f:textarea>
 											</div>
 										</div>
+										<f:hidden path="cid" />
 										<div class="card-footer text-right">
 											<button class="btn btn-primary">Submit</button>
 										</div>

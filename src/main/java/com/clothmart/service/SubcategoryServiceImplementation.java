@@ -14,35 +14,38 @@ public class SubcategoryServiceImplementation implements SubcategoryService {
 
 	@Autowired
 	private SubcategoryDAO subcategoryDAO;
-	
+
 	@Override
 	public void insert(Subcategory subcategory) {
-		
+
 		subcategory.setStatus(true);
 		this.subcategoryDAO.save(subcategory);
-		
+
 	}
 
 	@Override
 	public List<Subcategory> getSubcategoryList() {
-		
+
 		return this.subcategoryDAO.findAll();
 	}
 
 	@Override
 	public Subcategory getEditList(Subcategory subcategory) {
-		
+
 		Optional<Subcategory> o = this.subcategoryDAO.findById(subcategory.getSid());
 		return o.get();
 	}
-	
-	public void delete(Subcategory subcategory)
-	{
+
+	public void delete(Subcategory subcategory) {
 		Optional<Subcategory> o = this.subcategoryDAO.findById(subcategory.getSid());
 		Subcategory subcategory2 = o.get();
 		subcategory2.setStatus(false);
 		this.subcategoryDAO.save(subcategory2);
 	}
-	
+
+	@Override
+	public Subcategory findBySid(Long sid) {
+		return this.subcategoryDAO.findById(sid).get();
+	}
 
 }

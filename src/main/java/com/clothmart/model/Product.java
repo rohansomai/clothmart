@@ -12,7 +12,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-
 @Entity
 @Table(name = "Product")
 public class Product {
@@ -34,11 +33,20 @@ public class Product {
 	@Column(name = "price")
 	private Long price;
 
+	@Column(name = "color")
+	private String color;
+
 	@Column(name = "imageUrl")
 	private String imageUrl;
 
 	@Column(name = "imageFileName")
 	private String imageFileName;
+
+	@Column(name = "modelImageLink")
+	private String modelImageLink;
+
+	@Column(name = "modelFileName")
+	private String modelFileName;
 
 	@ManyToOne
 	@JoinColumn(name = "product_retailer_id")
@@ -135,13 +143,36 @@ public class Product {
 		this.subcategory = subcategory;
 	}
 
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getModelImageLink() {
+		return modelImageLink;
+	}
+
+	public void setModelImageLink(String modelImageLink) {
+		this.modelImageLink = modelImageLink;
+	}
+
+	public String getModelFileName() {
+		return modelFileName;
+	}
+
+	public void setModelFileName(String modelFileName) {
+		this.modelFileName = modelFileName;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [pid=" + pid + ", name=" + name + ", description=" + description + ", quantity=" + quantity
-				+ ", price=" + price + ", imageUrl=" + imageUrl + ", imageFileName=" + imageFileName + ", retailer="
-				+ retailer + ", category=" + category + ", subcategory=" + subcategory + "]";
+				+ ", price=" + price + ", color=" + color + ", imageUrl=" + imageUrl + ", imageFileName="
+				+ imageFileName + ", retailer=" + retailer + ", category=" + category + ", subcategory=" + subcategory
+				+ "]";
 	}
 
-	
-	
 }

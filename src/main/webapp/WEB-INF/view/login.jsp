@@ -35,7 +35,10 @@
 							<div class="card-header">
 								<h4>Login</h4>
 							</div>
-
+							<x:if test="${passwordUpdated eq 'true'}">
+								<div class="alert alert-success">New password saved
+									successfully. Kindly login with new password</div>
+							</x:if>
 							<div class="card-body">
 								<x:if test="${error ne null}">
 									<div class="alert alert-danger">${error}</div>

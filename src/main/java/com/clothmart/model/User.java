@@ -47,7 +47,7 @@ public class User {
 	@Column(name = "status")
 	private Boolean status;
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_login_id")
 	Login login;
 

@@ -44,7 +44,7 @@
 							<div class="col-12">
 								<div class="card">
 									<f:form method="post" action="saveSubcategory"
-										modelAttribute="form-data">
+										modelAttribute="subcategoryData">
 										<div class="card-header">
 											<h4>Add Sub category</h4>
 										</div>
@@ -53,7 +53,7 @@
 											<div class="form-group">
 												<label for="category"> Category </label>
 												<f:select class="form-control" path="category.cid"
-													required="">
+													required="true">
 													<option selected disabled>Select Category</option>
 													<x:forEach items="${categoryList}" var="i">
 														<x:if test="${i.status eq true}">
@@ -64,16 +64,16 @@
 											</div>
 											<div class="form-group mb-0">
 												<label>Sub category Name</label>
-												<f:input class="form-control" required="" path="name" />
+												<f:input class="form-control" required="true" path="name" />
 											</div>
 
 											<div class="form-group mb-0">
 												<label>Sub category Description</label>
 												<f:textarea class="form-control" path="description"
-													required=""></f:textarea>
+													required="true"></f:textarea>
 											</div>
-
-											<f:hidden path="sid" />
+<%-- 											<f:hidden path="category.cid" />
+ --%>											<f:hidden path="sid" />
 										</div>
 										<div class="card-footer text-right">
 											<button class="btn btn-primary">Submit</button>

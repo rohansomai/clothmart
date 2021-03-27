@@ -30,7 +30,6 @@
 			<jsp:include page="header.jsp"></jsp:include>
 
 
-
 			<jsp:include page="menu.jsp"></jsp:include>
 
 
@@ -45,7 +44,7 @@
 										<div class="row ">
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
 												<div class="card-content">
-													<h5 class="font-15">New Booking</h5>
+													<h5 class="font-15">New products</h5>
 													<h2 class="mb-3 font-18">258</h2>
 													<p class="mb-0">
 														<span class="col-green">10%</span> Increase
@@ -93,7 +92,7 @@
 										<div class="row ">
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
 												<div class="card-content">
-													<h5 class="font-15">New Project</h5>
+													<h5 class="font-15">New Retailers</h5>
 													<h2 class="mb-3 font-18">128</h2>
 													<p class="mb-0">
 														<span class="col-green">18%</span> Increase
@@ -118,7 +117,7 @@
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
 												<div class="card-content">
 													<h5 class="font-15">Revenue</h5>
-													<h2 class="mb-3 font-18">$48,697</h2>
+													<h2 class="mb-3 font-18">&#8377; 48,697</h2>
 													<p class="mb-0">
 														<span class="col-green">42%</span> Increase
 													</p>
@@ -166,7 +165,7 @@
 													<div class="list-inline text-center">
 														<div class="list-inline-item p-r-30">
 															<i data-feather="arrow-up-circle" class="col-green"></i>
-															<h5 class="m-b-0">$675</h5>
+															<h5 class="m-b-0">&#8377; 675</h5>
 															<p class="text-muted font-14 m-b-0">Weekly Earnings</p>
 														</div>
 													</div>
@@ -175,7 +174,7 @@
 													<div class="list-inline text-center">
 														<div class="list-inline-item p-r-30">
 															<i data-feather="arrow-down-circle" class="col-orange"></i>
-															<h5 class="m-b-0">$1,587</h5>
+															<h5 class="m-b-0">&#8377; 1,587</h5>
 															<p class="text-muted font-14 m-b-0">Monthly Earnings</p>
 														</div>
 													</div>
@@ -184,7 +183,7 @@
 													<div class="list-inline text-center">
 														<div class="list-inline-item p-r-30">
 															<i data-feather="arrow-up-circle" class="col-green"></i>
-															<h5 class="mb-0 m-b-0">$45,965</h5>
+															<h5 class="mb-0 m-b-0">&#8377; 45,965</h5>
 															<p class="text-muted font-14 m-b-0">Yearly Earnings</p>
 														</div>
 													</div>
@@ -199,7 +198,7 @@
 												</div>
 												<div class="col-7 col-xl-7 mb-3">Total Income</div>
 												<div class="col-5 col-xl-5 mb-3">
-													<span class="text-big">$9,857</span> <sup
+													<span class="text-big">&#8377;9,857</span> <sup
 														class="text-danger">-18%</sup>
 												</div>
 												<div class="col-7 col-xl-7 mb-3">Project completed</div>
@@ -208,7 +207,7 @@
 												</div>
 												<div class="col-7 col-xl-7 mb-3">Total expense</div>
 												<div class="col-5 col-xl-5 mb-3">
-													<span class="text-big">$6,287</span> <sup class="col-green">+09%</sup>
+													<span class="text-big">&#8377;6,287</span> <sup class="col-green">+09%</sup>
 												</div>
 												<div class="col-7 col-xl-7 mb-3">New Customers</div>
 												<div class="col-5 col-xl-5 mb-3">
@@ -259,7 +258,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-12">
 							<div class="card">
 								<div class="card-header">
@@ -551,10 +550,10 @@
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="row">
+					</div> -->
+					<!-- <div class="row">
 						<div class="col-md-6 col-lg-12 col-xl-6">
-							<!-- Support tickets -->
+							Support tickets
 							<div class="card">
 								<div class="card-header">
 									<h4>Support Ticket</h4>
@@ -629,7 +628,7 @@
 								<a href="javascript:void(0)"
 									class="card-footer card-link text-center small ">View All</a>
 							</div>
-							<!-- Support tickets -->
+							Support tickets
 						</div>
 						<div class="col-md-6 col-lg-12 col-xl-6">
 							<div class="card">
@@ -654,49 +653,49 @@
 													<td>John Doe</td>
 													<td>11-08-2018</td>
 													<td>NEFT</td>
-													<td>$258</td>
+													<td>&#8377;258</td>
 												</tr>
 												<tr>
 													<td>2</td>
 													<td>Cara Stevens</td>
 													<td>15-07-2018</td>
 													<td>PayPal</td>
-													<td>$125</td>
+													<td>&#8377;125</td>
 												</tr>
 												<tr>
 													<td>3</td>
 													<td>Airi Satou</td>
 													<td>25-08-2018</td>
 													<td>RTGS</td>
-													<td>$287</td>
+													<td>&#8377;287</td>
 												</tr>
 												<tr>
 													<td>4</td>
 													<td>Angelica Ramos</td>
 													<td>01-05-2018</td>
 													<td>CASH</td>
-													<td>$170</td>
+													<td>&#8377;170</td>
 												</tr>
 												<tr>
 													<td>5</td>
 													<td>Ashton Cox</td>
 													<td>18-04-2018</td>
 													<td>NEFT</td>
-													<td>$970</td>
+													<td>&#8377;970</td>
 												</tr>
 												<tr>
 													<td>6</td>
 													<td>John Deo</td>
 													<td>22-11-2018</td>
 													<td>PayPal</td>
-													<td>$854</td>
+													<td>&#8377;854</td>
 												</tr>
 												<tr>
 													<td>7</td>
 													<td>Hasan Basri</td>
 													<td>07-09-2018</td>
 													<td>Cash</td>
-													<td>$128</td>
+													<td>&#8377;128</td>
 												</tr>
 											</tbody>
 										</table>
@@ -704,7 +703,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</section>
 			</div>
 

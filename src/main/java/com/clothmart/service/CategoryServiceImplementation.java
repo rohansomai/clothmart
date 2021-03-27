@@ -23,6 +23,7 @@ public class CategoryServiceImplementation implements CategoryService {
 
 		category.setStatus(true);
 		this.categoryDAO.save(category);
+		
 
 	}
 

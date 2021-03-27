@@ -3,6 +3,9 @@ package com.clothmart.service;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.clothmart.model.Login;
@@ -40,8 +43,32 @@ public class LoginServiceImplementation implements LoginService {
 
 	@Override
 	public Login findByEmailAndRole(String email, String role) {
-		
+
 		return this.loginDAO.findByEmailAndRole(email, role);
+	}
+
+	@Override
+	public void updatePassword(Login login) {
+
+		Login login2 = this.loginDAO.findByEmail(login.getEmail());
+		login2.setPassword(login.getPassword());
+		this.loginDAO.save(login2);
+	}
+
+	@Override
+	public String getLoggedInUser() {
+
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken))
+			return authentication.getName();
+		else
+			return null;
+	}
+
+	@Override
+	public Login getLoginDetails(String email) {
+
+		return this.loginDAO.findByEmail(email);
 	}
 
 }

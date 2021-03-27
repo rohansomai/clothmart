@@ -8,7 +8,7 @@
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
 	name="viewport">
-<title>Add Retailers</title>
+<title>Add Sub category</title>
 <!-- General CSS Files -->
 <link rel="stylesheet" href="../adminResources/css/app.min.css">
 <!-- Template CSS -->
@@ -22,6 +22,7 @@
 
 <body>
 	<%@taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
+	<%@taglib prefix="x" uri="http://java.sun.com/jstl/core_rt"%>
 	<div class="loader"></div>
 	<div id="app">
 		<div class="main-wrapper main-wrapper-1">
@@ -29,6 +30,7 @@
 
 
 			<jsp:include page="header.jsp"></jsp:include>
+
 
 
 			<jsp:include page="menu.jsp"></jsp:include>
@@ -68,9 +70,13 @@
 													<div class="form-group">
 														<label>Email</label>
 														<f:input type="email" class="form-control"
-															path="login.email" required="true" />
+															path="login.email" required="true" id="email"
+															onblur="checkEmailAlreadyExists()" />
 													</div>
+													<div style="display: none" id="emailAlreadyExitsMessage"
+														class="alert alert-danger col-12"></div>
 												</div>
+
 												<div class="col">
 													<div class="form-group">
 														<label>Password</label>
@@ -130,6 +136,8 @@
 	<script src="../adminResources/js/scripts.js"></script>
 	<!-- Custom JS File -->
 	<script src="../adminResources/js/custom.js"></script>
+	<script src="../adminResources/js/registrationJS.js"></script>
+
 	<script>
 		$(document).ready(function() {
 			iziToast.error({

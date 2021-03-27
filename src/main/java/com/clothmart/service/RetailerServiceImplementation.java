@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.clothmart.model.Login;
 import com.clothmart.model.Retailer;
 import com.clothmart.repository.RetailerDAO;
 
@@ -27,22 +28,28 @@ public class RetailerServiceImplementation implements RetailerService {
 	}
 
 	public List<Retailer> getRetailersList() {
-		
+
 		return this.retailerDAO.findAll();
-		
+
 	}
 
-	public Retailer getEditList(Retailer retailer)
-	{
+	public Retailer getEditList(Retailer retailer) {
 		Optional<Retailer> o = this.retailerDAO.findById(retailer.getId());
 		return o.get();
 	}
-	
-	public void delete(Retailer retailer)
-	{
+
+	public void delete(Retailer retailer) {
 //		this.retailerDAO.delete(retailer);
 		Retailer retailer2 = this.retailerDAO.findById(retailer.getId()).get();
 		retailer2.setStatus(false);
 		this.retailerDAO.save(retailer2);
+	}
+
+	@Override
+	public Retailer getRetailerByLogin(Login login) {
+
+		System.out.println(login);
+		return this.retailerDAO.findByLogin(login).get(0);
+		
 	}
 }
